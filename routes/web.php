@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\frontend\IndexController;
+use App\Http\Controllers\UpdateInfoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,4 @@ use App\Http\Controllers\frontend\IndexController;
 // });
 
 Route::get('/',[IndexController::class, 'index']);
+Route::get('/', [UpdateInfoController::class, 'index']);

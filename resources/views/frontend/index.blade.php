@@ -15,7 +15,7 @@
                                     <h1 class="hero-title ms-3 mb-0">Hello friend!</h1>
                                 </div>
 
-                                <h2 class="mb-4">I’m available for freelance work.</h2>
+                                <h2 class="mb-4">{{ $updateInfo->availability }}</h2>
                                 <p class="mb-4"><a class="custom-btn btn custom-link" href="#section_2">Let's begin</a></p>
                             </div>
                         </div>
@@ -49,11 +49,11 @@
                                     <img src="images/happy-bearded-young-man.jpg" class="avatar-image img-fluid" alt="">
                                 </div>
 
-                                <h3 class="pt-2 mb-3">a little bit about Joshua</h3>
+                                <h3 class="pt-2 mb-3">a little bit about Me</h3>
 
-                                <p>This one-page HTML portfolio is provided by <a href="https://templatemo.com" target="_blank">TemplateMo</a>. This layout is based on Bootstrap v5.1.3 CSS and JS libraries. Image credits go to <a href="https://unsplash.com" target="_blank">Unsplash</a> and <a href="https://freepik.com" target="_blank">FreePik</a> for images used in this page.</p>
+                                <p>{{ $updateInfo->my_info }}</p>
 
-                                <p>You are allowed to use this template for your websites. You are not allowed to redistribute the template ZIP file on any other website. Please <a href="https://templatemo.com/contact" target="_blank">contact us</a> for more info.</p>
+                                
                             </div>
                         </div>
 
@@ -74,22 +74,22 @@
                                 <div class="profile-body">
                                     <p>
                                         <span class="profile-small-title">Name</span> 
-                                        <span>Joshua Morgan</span>
+                                        <span>{{ $additionalInfo->name }}</span>
                                     </p>
 
                                     <p>
                                         <span class="profile-small-title">Birthday</span> 
-                                        <span>Aug 12, 1986</span>
+                                        <span>{{ $additionalInfo->birthday }}</span>
                                     </p>
 
                                     <p>
                                         <span class="profile-small-title">Phone</span> 
-                                         <span><a href="tel: 305-240-9671">120-240-9600</a></span>
+                                         <span><a href="tel: 305-240-9671">{{ $additionalInfo->phone }}</a></span>
                                     </p>
 
                                     <p>
                                         <span class="profile-small-title">Email</span> 
-                                        <span><a href="mailto:hello@josh.design">hello@josh.design</a></span>
+                                        <span><a href="mailto:hello@josh.design">{{ $additionalInfo->email }}</a></span>
                                     </p>
                                 </div>
                             </div>
@@ -99,25 +99,25 @@
                             <div class="about-thumb">
                                 <div class="row">
                                     <div class="col-lg-6 col-6 featured-border-bottom py-2">
-                                        <strong class="featured-numbers">20+</strong>
+                                        <strong class="featured-numbers">{{ $additionalInfo->experience }}+</strong>
 
                                         <p class="featured-text">Years of Experiences</p>
                                     </div>
 
                                     <div class="col-lg-6 col-6 featured-border-start featured-border-bottom ps-5 py-2">
-                                        <strong class="featured-numbers">245</strong>
+                                        <strong class="featured-numbers">{{ $additionalInfo->customers }}</strong>
 
                                         <p class="featured-text">Happy Customers</p>
                                     </div>
 
                                     <div class="col-lg-6 col-6 pt-4">
-                                        <strong class="featured-numbers">640</strong>
+                                        <strong class="featured-numbers">{{ $additionalInfo->projects_finished }}</strong>
 
                                         <p class="featured-text">Project Finished</p>
                                     </div>
 
                                     <div class="col-lg-6 col-6 featured-border-start ps-5 pt-4">
-                                        <strong class="featured-numbers">72+</strong>
+                                        <strong class="featured-numbers">{{ $additionalInfo->awards }}</strong>
 
                                         <p class="featured-text">Digital Awards</p>
                                     </div>
@@ -163,7 +163,7 @@
             </section>
 
 
-            <section class="services section-padding" id="section_3">
+            <!-- <section class="services section-padding" id="section_3">
                 <div class="container">
                     <div class="row">
 
@@ -262,7 +262,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
 
 
             <section class="projects section-padding" id="section_4">
@@ -278,49 +278,21 @@
                         </div>
 
                         <div class="clearfix"></div>
-
+                        @foreach($projects as $project)
                         <div class="col-lg-4 col-md-6 col-12">
                             <div class="projects-thumb">
                                 <div class="projects-info">
-                                    <small class="projects-tag">Branding</small>
+                                    <small class="projects-tag">{{ $project->project_category }}</small>
 
-                                    <h3 class="projects-title">Zoik agency</h3>
+                                    <h3 class="projects-title">{{ $project->project_name }}</h3>
                                 </div>
 
-                                <a href="images/projects/nikhil-KO4io-eCAXA-unsplash.jpg" class="popup-image">
-                                    <img src="images/projects/nikhil-KO4io-eCAXA-unsplash.jpg" class="projects-image img-fluid" alt="">
+                                <a href="data:image/png;base64,{{ $project->project_image }}" class="popup-image">
+                                    <img src="data:image/png;base64,{{ $project->project_image }}" class="projects-image img-fluid" alt="">
                                 </a>
                             </div>
                         </div>
-
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <div class="projects-thumb">
-                                <div class="projects-info">
-                                    <small class="projects-tag">Photography</small>
-
-                                    <h3 class="projects-title">The Watch</h3>
-                                </div>
-
-                                <a href="images/projects/the-5th-IQYR7N67dhM-unsplash.jpg" class="popup-image">
-                                    <img src="images/projects/the-5th-IQYR7N67dhM-unsplash.jpg" class="projects-image img-fluid" alt="">
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <div class="projects-thumb">
-                                <div class="projects-info">
-                                    <small class="projects-tag">Website</small>
-
-                                    <h3 class="projects-title">Polo</h3>
-                                </div>
-
-                                <a href="images/projects/true-agency-9Bjog5FZ-oc-unsplash.jpg" class="popup-image">
-                                    <img src="images/projects/true-agency-9Bjog5FZ-oc-unsplash.jpg" class="projects-image img-fluid" alt="">
-                                </a>
-                            </div>
-                        </div>
-
+                        @endforeach
                     </div>
                 </div>
             </section>
